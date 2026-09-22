@@ -1,0 +1,25 @@
+[project]
+name = "student-rag-verify"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "streamlit>=1.38",
+    "python-dotenv>=1.0",
+    "langchain>=0.3",
+    "langchain-classic>=1.0",
+    "langchain-core>=0.3",
+    "langchain-community>=0.3",
+    "langchain-text-splitters>=0.3",
+    "langchain-chroma>=0.1.4",
+    "langchain-huggingface>=0.1",
+    "langchain-ollama>=0.2",
+    "chromadb>=0.5",
+    "sentence-transformers>=3.0",
+    "rank-bm25>=0.2.2",
+    "docx2txt>=0.8",
+    "pypdf>=4.0",
+    "unstructured[xlsx]>=0.15",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
