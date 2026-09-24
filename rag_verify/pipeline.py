@@ -1,6 +1,5 @@
 from rag_verify.config import Settings
-from rag_verify.generation.llm import build_llm
-from rag_verify.generation.prompt import build_prompt
+from rag_verify.generation import build_llm, build_prompt
 from rag_verify.retrieval.hybrid import build_retriever
 
 

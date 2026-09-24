@@ -42,9 +42,9 @@
 
 ## Тести й конфіги
 
-- Є один test module із шістьма тестами інкрементальної індексації. `FakeVectorStore` дає змогу перевіряти diff-логіку без реальної Chroma та embeddings.
-- Покриваються додавання нового файлу, пропуск незміненого, заміна зміненого, видалення файлу, унікальність IDs однакових chunk-ів і пропуск непідтримуваного розширення.
-- Останній запуск `uv run pytest` у поточному середовищі (Python 3.12.14) завершився результатом **6 passed**. Виведено один deprecation warning про `langchain-community`.
+- Є два test modules: шість тестів інкрементальної індексації та два тести генерації. `FakeVectorStore` дає змогу перевіряти diff-логіку без реальної Chroma та embeddings.
+- Тести індексації покривають додавання нового файлу, пропуск незміненого, заміну зміненого, видалення файлу, унікальність IDs однакових chunk-ів і пропуск непідтримуваного розширення. Тести генерації перевіряють передачу налаштувань до Ollama-фабрики та побудову prompt із входами контексту й питання.
+- Останній запуск `uv run pytest` у поточному середовищі (Python 3.12.14) завершився результатом **8 passed**. Виведено один deprecation warning про `langchain-community`.
 - Конфігурація завантажується з `.env` через `python-dotenv`; приклад змінних наведено в `.env.example`, значення за замовчуванням — у `rag_verify/config.py`.
 - `.gitignore` виключає `.env`, файли користувацьких документів і згенеровані індекси з Git; у відповідних data-каталогах залишаються `.gitkeep`.
 - У репозиторії не виявлено окремих build, lint, formatter або type-checker команд.
@@ -56,8 +56,8 @@ app.py ───────────────┐
                       ├──> rag_verify.pipeline.RagPipeline
                       │      ├──> retrieval.hybrid ──> retrieval.bm25
                       │      │                     └─> retrieval.vectorstore ─> embeddings
-                      │      ├──> generation.llm ───> langchain_ollama / Ollama
-                      │      └──> generation.prompt
+                      │      ├──> generation.model ───> langchain_ollama / Ollama
+                      │      └──> generation.template
                       │
 ingest.py ────────────┴──> ingestion.pipeline
                              ├──> ingestion.loaders

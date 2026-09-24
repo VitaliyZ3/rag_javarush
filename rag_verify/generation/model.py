@@ -1,7 +1,14 @@
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
 from rag_verify.config import Settings
 
+if TYPE_CHECKING:
+    from langchain_ollama import ChatOllama
 
-def build_llm(settings: Settings):
+
+def build_llm(settings: Settings) -> ChatOllama:
     from langchain_ollama import ChatOllama
 
     return ChatOllama(

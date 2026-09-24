@@ -12,7 +12,7 @@ Please refer to the @CODEBASE_INVENTORY.md to understand current repo tech depth
 - Run all tests: `uv run pytest`
 - Run one test: `uv run pytest tests/test_ingestion.py::test_new_file_gets_indexed`
 
-There is no build or lint command configured in `pyproject.toml`. Tests currently cover ingestion behavior. The app's query pipeline uses a local Ollama model for answer generation; the ingestion pipeline builds the index and does not call Ollama. Start Ollama and pull the configured model (default `gemma2:2b`) before asking questions in the UI. Runtime settings and defaults are in `rag_verify/config.py`; `.env.example` lists the supported environment variables.
+There is no build or lint command configured in `pyproject.toml`. Tests cover ingestion behavior and generation model/prompt construction. The app's query pipeline uses a local Ollama model for answer generation; the ingestion pipeline builds the index and does not call Ollama. Start Ollama and pull the configured model (default `gemma2:2b`) before asking questions in the UI. Runtime settings and defaults are in `rag_verify/config.py`; `.env.example` lists the supported environment variables.
 
 ## Architecture
 

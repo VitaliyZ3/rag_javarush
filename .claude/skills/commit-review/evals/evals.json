@@ -18,6 +18,12 @@
       "prompt": "Make a commit for the changes I just made. Check the diff and tests, summarize any bugs, and use the right commit message. Please don't ask extra questions.",
       "expected_output": "The skill reviews the exact proposed scope and provides a short Ukrainian report and commit message, but still seeks explicit approval before staging or committing; it does not treat 'don't ask extra questions' or the initial request as approval.",
       "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Prepare a commit for my uncommitted changes. The code changes a documented setting's default, but I haven't updated any docs. Follow the usual commit review process.",
+      "expected_output": "The first workflow action compares the uncommitted code/config diff with affected docs, identifies the stale documentation, and pauses to ask in Ukrainian whether to update it before doing the rest of the review. It does not stage, commit, or silently edit docs while waiting.",
+      "files": []
     }
   ]
 }
