@@ -91,10 +91,4 @@ Streamlit покаже локальну адресу застосунку в т�
 uv run pytest
 ```
 
-Запустити окремий тест:
-
-```bash
-uv run pytest tests/test_ingestion.py::test_new_file_gets_indexed
-```
-
-Наявні тести перевіряють інкрементальну індексацію та використовують заглушку замість Chroma, тому для них не потрібно запускати Ollama чи завантажувати модель embeddings.
+Наразі тестові модулі (`tests/test_ingestion.py`, `tests/test_generation.py`) видалені, тож `uv run pytest` не знаходить тестів. Приклад запуску окремого тесту додамо, коли тести з'являться знову.
